@@ -23,7 +23,7 @@ public class HomeController {
 		model.addAttribute("StudentName","Aditya Kelaskar");
 		model.addAttribute("StudentDepartment","Computer Science");
 		List<String> expertiseList = List.of("Android DEvlopment","Spring Framework","Spring-Boot Framework","Hibernate framework","Java","Java-8/Functional Programming","Advance-Java");
-		model.addAttribute("ExpertiesList",expertiseList);
+		model.addAttribute("StudentExpertiseList",expertiseList);
 		return "about";
 	}
 	
@@ -33,18 +33,30 @@ public class HomeController {
 		
 		// Adding Object or values.
 		
-		modelAndView.addObject("sid","2021FHCO042");
-		modelAndView.addObject("name","Aditya Kelaskar");
-		modelAndView.addObject("rollNo",54);
-		modelAndView.addObject("department","Computer Science");
+		modelAndView.addObject("StudentId","2021FHCO042");
+		modelAndView.addObject("StudentName","Aditya Kelaskar");
+		modelAndView.addObject("StudentRollNo",54);
+		modelAndView.addObject("StudentDepartment","Computer Science");
 		List<String> expertiseList = List.of("Android DEvlopment","Spring Framework","Spring-Boot Framework","Hibernate framework","Java","Java-8/Functional Programming","Advance-Java");
-		modelAndView.addObject("expertiseList",expertiseList);
+		modelAndView.addObject("StudentExpertiseList",expertiseList);
 		
 		// tagging to page 
 		
 		modelAndView.setViewName("help");
 		
 		return modelAndView;
+	}
+	
+	@RequestMapping("/form")
+	public String formPage(Model model) {
+		model.addAttribute("StudentId","2021FHCO042");
+		model.addAttribute("StudentName","Aditya Kelaskar");
+		model.addAttribute("StudentDepartment","Computer Science");
+		model.addAttribute("StudentRollNo",54);
+		List<String> list = List.of("Android DEvlopment","Spring Framework","Spring-Boot Framework","Hibernate framework","Java","Java-8/Functional Programming","Advance-Java");
+		model.addAttribute("StudentExpertiseList",list);
+		
+		return "form";
 	}
 	
 }
